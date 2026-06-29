@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "maidgunfftrue.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "GunHurtMaidEventMixin"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
