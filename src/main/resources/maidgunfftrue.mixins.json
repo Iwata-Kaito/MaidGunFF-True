@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "maidgunfftrue.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "TestMixin"
+  ],
+  "client": [
+
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
