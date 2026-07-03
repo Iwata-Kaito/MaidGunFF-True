@@ -88,6 +88,15 @@ config="${mod_id}.mixins.json"
     ordering="NONE"
     side="BOTH"
 
+[[dependencies.${mod_id}]]
+    modId = "touhou_little_maid"
+    # type 为 optional 时，仅在安装了女仆模组时才检查版本
+    type = "optional"
+    versionRange = "[1.3.0,)"
+    # 在女仆模组之后加载
+    ordering = "AFTER"
+    side = "BOTH"
+
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares
 # that your mod requires GL version 3.2 or higher. Other features will be added. They are side aware so declaring this won't
 # stop your mod loading on the server for example.
