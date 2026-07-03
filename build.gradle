@@ -124,6 +124,21 @@ neoForge {
     }
 }
 
+repositories {
+    // 添加 cursemaven 仓库
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+}
+
+dependencies {
+    implementation 'curse.maven:touhou-little-maid-355044:6613831-sources-6613865'
+    implementation "curse.maven:tacz-1-21-1-1353462:8318179"
+}
+
 // Sets up a dependency configuration called 'localRuntime'.
 // This configuration should be used instead of 'runtimeOnly' to declare
 // a dependency that will be present for runtime testing but that is
