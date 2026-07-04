@@ -12,16 +12,24 @@ import org.spongepowered.asm.mixin.Overwrite;
 @Mixin(GunHurtMaidEvent.class)
 public class GunHurtMaidEventMixin {
     @Overwrite
-    public void onMaidHurt(MaidHurtEvent event) {}
+    public void onMaidHurt(MaidHurtEvent event) {
+        System.out.println("§b[MIXIN] onMaidHurt");
+    }
 
     @Overwrite
-    public void onGunHurt(EntityHurtByGunEvent.Pre event) {}
+    public void onGunHurt(EntityHurtByGunEvent.Pre event) {
+        System.out.println("§b[MIXIN] onGunHurt");
+    }
 
     @Overwrite
-    public void onPlayerHurt(LivingIncomingDamageEvent event) {}
+    public void onPlayerHurt(LivingIncomingDamageEvent event) {
+        System.out.println("§b[MIXIN] onPlayerHurt");
+    }
 
     @Overwrite
-    public void onExplosionDetonateEvent(ExplosionEvent.Detonate event) {}
+    public void onExplosionDetonateEvent(ExplosionEvent.Detonate event) {
+        System.out.println("§b[MIXIN] onExplosionDetonateEvent");
+    }
 
     @Overwrite
     private boolean isBulletDamage(DamageSource source) {
