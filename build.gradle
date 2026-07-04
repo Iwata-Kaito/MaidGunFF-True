@@ -14,21 +14,6 @@ tasks.named('wrapper', Wrapper).configure {
     distributionType = Wrapper.DistributionType.BIN
 }
 
-repositories {
-    // 添加 cursemaven 仓库
-    maven {
-        url "https://cursemaven.com"
-        content {
-            includeGroup "curse.maven"
-        }
-    }
-}
-
-dependencies {
-    implementation 'curse.maven:touhou-little-maid-355044:6613831-sources-6613865'
-    implementation "curse.maven:tacz-1-21-1-1353462:8318179"
-}
-
 version = mod_version
 group = mod_group_id
 
@@ -43,6 +28,13 @@ sourceSets.main.resources {
 
 repositories {
     // Add here additional repositories if required by some of the dependencies below.
+    // 添加 cursemaven 仓库
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
 }
 
 base {
@@ -124,21 +116,6 @@ neoForge {
     }
 }
 
-repositories {
-    // 添加 cursemaven 仓库
-    maven {
-        url "https://cursemaven.com"
-        content {
-            includeGroup "curse.maven"
-        }
-    }
-}
-
-dependencies {
-    implementation 'curse.maven:touhou-little-maid-355044:6613831-sources-6613865'
-    implementation "curse.maven:tacz-1-21-1-1353462:8318179"
-}
-
 // Sets up a dependency configuration called 'localRuntime'.
 // This configuration should be used instead of 'runtimeOnly' to declare
 // a dependency that will be present for runtime testing but that is
@@ -169,6 +146,9 @@ dependencies {
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+
+    implementation "curse.maven:touhou-little-maid-355044:8061852"
+    implementation "curse.maven:tacz-1-21-1-1353462:8318179"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
