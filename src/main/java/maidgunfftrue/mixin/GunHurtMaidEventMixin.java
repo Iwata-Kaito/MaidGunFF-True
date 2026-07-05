@@ -1,17 +1,15 @@
 package maidgunfftrue.mixin;
 
-import com.github.tartaricacid.touhoulittlemaid.api.event.MaidHurtEvent;
 import com.github.tartaricacid.touhoulittlemaid.compat.gun.swarfare.event.GunHurtMaidEvent;
+import net.minecraft.world.damagesource.DamageSource;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.Overwrite;
 
 @Mixin(value = GunHurtMaidEvent.class,remap = false)
 public class GunHurtMaidEventMixin {
-    @Inject(method = "onMaidHurt", at = @At("HEAD"), cancellable = true)
-    void CancelonMaidHurt(MaidHurtEvent event, CallbackInfo ci) {
-        System.out.println("§b[MIXIN] onMaidHurt");
-        ci.cancel();
+    @Overwrite
+    private boolean isBulletDamage(DamageSource source) {
+        System.out.println("§e[MIXIN] isBulletDamage");
+        return false;   // 常に false を返す
     }
 }
