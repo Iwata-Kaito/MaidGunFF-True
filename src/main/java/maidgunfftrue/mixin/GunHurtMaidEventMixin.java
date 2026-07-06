@@ -11,31 +11,25 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import static maidgunfftrue.MaidGunFFTrue.LOGGER;
-
 @Mixin(value = GunHurtMaidEvent.class,remap = false)
 public class GunHurtMaidEventMixin {
-    @Inject(method = "isBulletDamage(Lnet/minecraft/world/damagesource/DamageSource;)Z", at = @At("HEAD"), remap = false, cancellable = true)
-    private void isBulletDamage(DamageSource source, CallbackInfoReturnable<Boolean> cir) {
-        LOGGER.debug("damage source filter method intercepted!");
+    @Inject(method = "isBulletDamage", at = @At("HEAD"), remap = false, cancellable = true)
+    private void CancelisBulletDamage(DamageSource source, CallbackInfoReturnable<Boolean> cir) {
         cir.setReturnValue(false);
     }
 
-    @Inject(method = "onMaidHurt(Lcom/github/tartaricacid/touhoulittlemaid/api/event/MaidHurtEvent;)V", at = @At("HEAD"), remap = false, cancellable = true)
-    private void interceptMaidHurtEvent(MaidHurtEvent event, CallbackInfo ci) {
-        LOGGER.debug("Maid hurt event intercepted!");
+    @Inject(method = "onMaidHurt", at = @At("HEAD"), remap = false, cancellable = true)
+    private void CancelMaidHurtEvent(MaidHurtEvent event, CallbackInfo ci) {
         ci.cancel();
     }
 
-    @Inject(method = "onGunHurt(Lcom/tacz/guns/api/event/common/EntityHurtByGunEvent$Pre;)V", at = @At("HEAD"), remap = false, cancellable = true)
-    private void interceptGunHurtEvent(EntityHurtByGunEvent.Pre event, CallbackInfo ci) {
-        LOGGER.debug("Gun hurt event intercepted!");
+    @Inject(method = "onGunHurt", at = @At("HEAD"), remap = false, cancellable = true)
+    private void CancelGunHurtEvent(EntityHurtByGunEvent.Pre event, CallbackInfo ci) {
         ci.cancel();
     }
 
-    @Inject(method = "onExplosionDetonateEvent(Lnet/neoforged/neoforge/event/level/ExplosionEvent$Detonate;)V", at = @At("HEAD"), remap = false, cancellable = true)
-    private void interceptExplosionDetonateEvent(ExplosionEvent.Detonate event, CallbackInfo ci) {
-        LOGGER.debug("Explosion detonate event intercepted!");
+    @Inject(method = "onExplosionDetonateEvent", at = @At("HEAD"), remap = false, cancellable = true)
+    private void CancelExplosionDetonateEvent(ExplosionEvent.Detonate event, CallbackInfo ci) {
         ci.cancel();
     }
 }
