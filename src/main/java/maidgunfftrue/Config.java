@@ -11,10 +11,6 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 public class Config {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
-    public static final ModConfigSpec.BooleanValue Maid_On_Maid = BUILDER
-            .comment("Allow attacks from Maid to Maid.")
-            .define("maid_on_maid", false);
-
     static final ModConfigSpec SPEC = BUILDER.build();
 
     private static boolean validateItemName(final Object obj) {
